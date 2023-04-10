@@ -2,8 +2,7 @@ import 'package:aplicacion/InicioSesion/SplashS.dart';
 import 'package:aplicacion/my_app.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-//84563
-
+//Quieres ir al cine o a comer ahorita que termine la reunión bonita? 
 void main (){
   runApp(
       const App()
