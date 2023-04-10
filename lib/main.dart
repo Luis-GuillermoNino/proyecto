@@ -2,6 +2,7 @@ import 'package:aplicacion/InicioSesion/SplashS.dart';
 import 'package:aplicacion/my_app.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+//84563
 
 void main (){
   runApp(
