@@ -8,6 +8,7 @@ class SearchRutasDelegate extends SearchDelegate<Rutas>{
   @override
   String get searchFieldLabel => 'Ruta';
 
+  @override
   List<Widget> buildActions(BuildContext context) {
     return <Widget>[      IconButton(        icon: const Icon(Icons.clear),        onPressed: () {          query = '';        },      ),    ];
   }
@@ -26,21 +27,21 @@ class SearchRutasDelegate extends SearchDelegate<Rutas>{
 
   @override
   Widget buildResults(BuildContext context) {
-    return Center();
+    return const Center();
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
     final List<Rutas> suggestions = rutas
         .where((Rutas ruta) =>
-        ruta.ruta_nombre.toLowerCase().contains(query.toLowerCase()))
+        ruta.rutaNombre.toLowerCase().contains(query.toLowerCase()))
         .toList();
 
     return ListView.builder(
       itemCount: suggestions.length,
       itemBuilder: (BuildContext context, int index) {
         return ListTile(
-          title: Text(suggestions[index].ruta_nombre),
+          title: Text(suggestions[index].rutaNombre),
           onTap: () {
             FocusScope.of(context).unfocus();
             close(context, suggestions[index]);
@@ -49,5 +50,4 @@ class SearchRutasDelegate extends SearchDelegate<Rutas>{
       },
     );
   }
-
 }

@@ -1,40 +1,51 @@
 import 'dart:async';
+import 'package:aplicacion/datos_rutas.dart';
+import 'package:aplicacion/edicion/colores.dart';
+import 'package:aplicacion/menu.dart';
 import 'package:aplicacion/rutas.dart';
 import 'package:aplicacion/search_ruta_delegate.dart';
+import 'package:aplicacion/trazado_rutas.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart' as location;
-import 'package:fluttertoast/fluttertoast.dart';
 
 class Mapa extends StatefulWidget {
   const Mapa({Key? key}) : super(key: key);
-
   @override
-  _MapaState createState() => _MapaState();
+  MapaState createState() => MapaState();
 }
 
-class _MapaState extends State<Mapa> {
+class MapaState extends State<Mapa> {
+  //Variables
+  LatLng? _currentPosition;
+  final Set<Marker> _marker = {};
   final location.Location _location = location.Location();
-
   static const CameraPosition cameraPosition = CameraPosition(
     target: LatLng(17.07842707862655, -96.7425141036388),
     zoom: 25,
   );
-
   final Completer<GoogleMapController> _controller =
   Completer<GoogleMapController>();
-
   // Lista temporal de rutas
-  final List<Rutas> rutas = [    const Rutas('Ruta1'),    const Rutas('Ruta2'),    const Rutas('Ruta3'),    const Rutas('Ruta4'),  ];
-
+  List<Rutas> rutas = RutasData.rutas;
   final TextEditingController _searchController = TextEditingController();
+  //trazado de prueba
+  List<LatLng> polylineCoordinates = [];
+  Set<Polyline> _polylines = <Polyline>{};
+  late PolylinePoints polylinePoints;
+  late LatLng currentLocation;
+  late LatLng destinationLocation;
+  late LatLng destino3;
 
   @override
   void initState() {
     super.initState();
+    polylinePoints = PolylinePoints();
+    setInitialLocation();
     _searchController.addListener(() {
-      setState(() {});
     });
   }
 
@@ -42,6 +53,12 @@ class _MapaState extends State<Mapa> {
   void dispose() {
     _searchController.dispose();
     super.dispose();
+  }
+
+  void setInitialLocation() {
+    currentLocation = TrazoRutas.rutaPrueba[0];
+    destinationLocation = TrazoRutas.rutaPrueba[1];
+    destino3 = TrazoRutas.rutaPrueba[2];
   }
 
   @override
@@ -53,20 +70,13 @@ class _MapaState extends State<Mapa> {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
+        drawer: const menulateral(),
         appBar: AppBar(
           titleSpacing: 0.0,
           title: TextField(
             controller: _searchController,
             onTap: () async {
-              final Rutas? result = await showSearch(
-                context: context,
-                delegate: SearchRutasDelegate(rutas),
-              );
-              if (result != null) {
-                setState(() {
-                  _searchController.text = result.ruta_nombre;
-                });
-              }
+            buscarRuta();
             },
             decoration: InputDecoration(
               filled: true,
@@ -75,25 +85,38 @@ class _MapaState extends State<Mapa> {
               contentPadding: const EdgeInsets.symmetric(
                   horizontal: 16.0, vertical: 12.0),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30.0),
+                borderRadius: BorderRadius.circular(6),
                 borderSide: BorderSide.none,
               ),
               prefixIcon: const Icon(Icons.search_rounded),
             ),
             style: const TextStyle(fontSize: 18.0, color: Colors.black),
           ),
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colores.mainColor,
           elevation: 0.0,
           iconTheme: const IconThemeData(color: Colors.black),
           centerTitle: true,
           //AQUI LA BARRA LATERAL
           leading: IconButton(
             icon: const Icon(Icons.menu),
-            onPressed: () async {},
+            onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      WillPopScope(
+                        onWillPop: () async {
+                          return false;
+                        },
+                        child: const menulateral(),
+                      ),
+                ),
+              );
+            }
           ),
           actions: <Widget>[
             IconButton(
-              icon: const Icon(Icons.cleaning_services_sharp),
+              icon: const Icon(CupertinoIcons.bell),
               onPressed: () {},
             ),
           ],
@@ -102,6 +125,8 @@ class _MapaState extends State<Mapa> {
         body: Stack(
           children: <Widget>[
             GoogleMap(
+              markers:_marker,
+              polylines:_polylines,
               onTap: (LatLng latLng) {
                 FocusScope.of(context).requestFocus(FocusNode());
               },
@@ -112,6 +137,7 @@ class _MapaState extends State<Mapa> {
               compassEnabled: false,
               onMapCreated: (GoogleMapController controller) {
                 _controller.complete(controller);
+                setPolylines();
               },
             ),
             Positioned(
@@ -119,9 +145,10 @@ class _MapaState extends State<Mapa> {
               right: 16,
               child: FloatingActionButton.extended(
                 onPressed: _regresar,
-                backgroundColor: const Color(0xFFB5DA66),
+                backgroundColor: Colores.mainColor,
                 label: const Text('Yo'),
                 icon: const Icon(Icons.emoji_people_rounded),
+
               ),
             ),
           ],
@@ -129,32 +156,81 @@ class _MapaState extends State<Mapa> {
       ),
     );
   }
-
-
-
   Future<void> _regresar() async {
-
-
-    final bool isLocationEnabled = await _location.serviceEnabled();
-    if (!isLocationEnabled) {
-      Fluttertoast.showToast(
-        msg: "Hey! prende tu servicio de ubicación",
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.CENTER,
-        backgroundColor: const Color(0xFFB5DA66),
-        textColor: Colors.white,
-        fontSize: 30.0,
-
-      );
-      return;
-    }
-
+    final BitmapDescriptor personIcon = await BitmapDescriptor.fromAssetImage(
+      const ImageConfiguration(devicePixelRatio: 2.5),
+      'assets/personamarcador.png',
+    );
     final GoogleMapController controller = await _controller.future;
     final location.LocationData locationData = await _location.getLocation();
-    final CameraPosition currentPosition = CameraPosition(
-      target: LatLng(locationData.latitude!, locationData.longitude!),
+    final LatLng currentPosition = LatLng(
+      locationData.latitude!,
+      locationData.longitude!,
+    );
+    final CameraPosition cameraPosition = CameraPosition(
+      target: currentPosition,
       zoom: 18,
     );
-    controller.animateCamera(CameraUpdate.newCameraPosition(currentPosition));
+    controller.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+    Marker newMarker = Marker(
+      markerId:  const MarkerId('current'),
+      position: currentPosition,
+      icon: personIcon,
+    );
+
+    setState(() {
+      _marker.add(newMarker);
+      _currentPosition = currentPosition;
+    });
   }
+  void buscarRuta()async{
+    final Rutas? result = await showSearch(
+      context: context,
+      delegate: SearchRutasDelegate(rutas),
+    );
+    if (result != null) {
+      setState(() {
+        _searchController.text = result.rutaNombre;
+      });
+    }
+  }
+
+  void setPolylines() async {
+    PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
+        "AIzaSyCiXkGqo00VRBUq4PNWiYOUsX9P60FFAeA",
+        PointLatLng(currentLocation.latitude, currentLocation.longitude),
+        PointLatLng(destinationLocation.latitude, destinationLocation.longitude),
+    );
+    PolylineResult result2 = await polylinePoints.getRouteBetweenCoordinates(
+      "AIzaSyCiXkGqo00VRBUq4PNWiYOUsX9P60FFAeA",
+      PointLatLng(destinationLocation.latitude, destinationLocation.longitude),
+      PointLatLng(destino3.latitude, destino3.longitude),
+    );
+
+    if(result.status ==  'OK') {
+      for (var point in result.points) {
+        polylineCoordinates.add(LatLng(point.latitude, point.longitude));
+      }
+    }
+
+    if(result2.status ==  'OK') {
+      for (var point in result2.points) {
+        polylineCoordinates.add(LatLng(point.latitude, point.longitude));
+      }
+    }
+
+      setState(() {
+        _polylines.add(
+            Polyline(
+                width:10,
+                polylineId: const PolylineId('ruta_prueba'),
+                color: Colors.blue,
+                points: polylineCoordinates
+            )
+        );
+      });
+    }
+
 }
+
+
