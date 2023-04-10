@@ -25,7 +25,7 @@ class MapaState extends State<Mapa> {
   final location.Location _location = location.Location();
   static const CameraPosition cameraPosition = CameraPosition(
     target: LatLng(17.07842707862655, -96.7425141036388),
-    zoom: 25,
+    zoom: 16,
   );
   final Completer<GoogleMapController> _controller =
   Completer<GoogleMapController>();
@@ -169,7 +169,7 @@ class MapaState extends State<Mapa> {
     );
     final CameraPosition cameraPosition = CameraPosition(
       target: currentPosition,
-      zoom: 18,
+      zoom: 15,
     );
     controller.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
     Marker newMarker = Marker(
@@ -206,6 +206,11 @@ class MapaState extends State<Mapa> {
       PointLatLng(destinationLocation.latitude, destinationLocation.longitude),
       PointLatLng(destino3.latitude, destino3.longitude),
     );
+    PolylineResult result3 = await polylinePoints.getRouteBetweenCoordinates(
+      "AIzaSyCiXkGqo00VRBUq4PNWiYOUsX9P60FFAeA",
+      PointLatLng(destino3.latitude, destino3.longitude),
+      PointLatLng(currentLocation.latitude, currentLocation.longitude)
+    );
 
     if(result.status ==  'OK') {
       for (var point in result.points) {
@@ -218,13 +223,18 @@ class MapaState extends State<Mapa> {
         polylineCoordinates.add(LatLng(point.latitude, point.longitude));
       }
     }
+    if(result3.status ==  'OK') {
+      for (var point in result3.points) {
+        polylineCoordinates.add(LatLng(point.latitude, point.longitude));
+      }
+    }
 
       setState(() {
         _polylines.add(
             Polyline(
                 width:10,
                 polylineId: const PolylineId('ruta_prueba'),
-                color: Colors.blue,
+                color: Colors.red,
                 points: polylineCoordinates
             )
         );
