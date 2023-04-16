@@ -1,4 +1,3 @@
-
 import 'package:aplicacion/rutas.dart';
 
 class RutasData {

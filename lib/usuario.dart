@@ -6,11 +6,9 @@ class usuario extends StatelessWidget {
   const usuario({
     super.key,
   });
-
   void _irAPaginaDeUsuario(BuildContext context) {
     // Define aquí la navegación a la página de usuario
   }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
