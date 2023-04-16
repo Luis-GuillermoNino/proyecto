@@ -7,7 +7,7 @@ import 'package:aplicacion/paginas_menu/reciclaje.dart';
 import 'package:aplicacion/usuario.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'edicion/colores.dart';
+import '../edicion/colores.dart';
 import 'lista.dart';
 
 

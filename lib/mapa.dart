@@ -1,8 +1,10 @@
 import 'dart:async';
 
+import 'package:aplicacion/Conexion/consulta.dart';
+
 import 'package:aplicacion/datos_rutas.dart';
 import 'package:aplicacion/edicion/colores.dart';
-import 'package:aplicacion/menu.dart';
+import 'package:aplicacion/menu/menu.dart';
 import 'package:aplicacion/rutas.dart';
 import 'package:aplicacion/search_ruta_delegate.dart';
 import 'package:aplicacion/trazado_rutas.dart';
@@ -13,13 +15,15 @@ import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart' as location;
 
-import 'Conexion/consulta.dart';
+
 class Mapa extends StatefulWidget {
   const Mapa({Key? key}) : super(key: key);
   @override
   MapaState createState() => MapaState();
 }
+
 class MapaState extends State<Mapa>  {
+  //Variables
   int contador = 1;
   LatLng? _currentPosition;
   final Set<Marker> _marker = {};
@@ -40,27 +44,21 @@ class MapaState extends State<Mapa>  {
   late LatLng currentLocation;
   late LatLng destinationLocation;
   late LatLng destino3;
+
   @override
   void initState() {
     super.initState();
     Timer.periodic(const Duration(seconds: 5), (timer) {
       repetirMarcadores();
-    });
+    }
+    );
     polylinePoints = PolylinePoints();
     setInitialLocation();
     _searchController.addListener(() {
-    });
+    }
+    );
   }
-  @override
-  void dispose() {
-    _searchController.dispose();
-    super.dispose();
-  }
-  void setInitialLocation() {
-    currentLocation = TrazoRutas.rutaPrueba[0];
-    destinationLocation = TrazoRutas.rutaPrueba[1];
-    destino3 = TrazoRutas.rutaPrueba[2];
-  }
+
   @override
   Widget build(BuildContext context) {
     marcadoresBD();
@@ -156,6 +154,7 @@ class MapaState extends State<Mapa>  {
       ),
     );
   }
+  //Funciones
   Future<void> _regresar() async {
     final BitmapDescriptor personIcon = await BitmapDescriptor.fromAssetImage(
       const ImageConfiguration(devicePixelRatio: 2.5),
@@ -183,9 +182,7 @@ class MapaState extends State<Mapa>  {
       _currentPosition = currentPosition;
     });
   }
-
   Future<void> marcadoresBD() async {
-
     final coordenadas = await Consulta.obtenerCoordernadas(contador);
     final latitud = coordenadas['latitud'];
     final longitud = coordenadas['longitud'];
@@ -200,8 +197,7 @@ class MapaState extends State<Mapa>  {
     });
     final GoogleMapController controller = await _controller.future;
   }
-
-  void buscarRuta()async{
+  void buscarRuta()async {
     final Rutas? result = await showSearch(
       context: context,
       delegate: SearchRutasDelegate(rutas),
@@ -212,12 +208,20 @@ class MapaState extends State<Mapa>  {
       });
     }
   }
-
-  void repetirMarcadores(){
+  void repetirMarcadores() {
     marcadoresBD();
     contador = (contador % 10) + 1;
   }
-
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+  void setInitialLocation() {
+    currentLocation = TrazoRutas.rutaPrueba[0];
+    destinationLocation = TrazoRutas.rutaPrueba[1];
+    destino3 = TrazoRutas.rutaPrueba[2];
+  }
   void setPolylines() async {
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
         "AIzaSyCiXkGqo00VRBUq4PNWiYOUsX9P60FFAeA",
@@ -259,7 +263,8 @@ class MapaState extends State<Mapa>  {
                 points: polylineCoordinates
             )
         );
-      });
+      }
+      );
     }
 }
 
