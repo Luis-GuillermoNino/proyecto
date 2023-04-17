@@ -1,6 +1,7 @@
 import 'package:aplicacion/mapa.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
           children: [
             SafeArea(
               child: Image.asset(
-                'assets/fondopantalla.gif',
+                'assets/puente.gif',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: double.infinity,
@@ -28,13 +29,13 @@ class MyApp extends StatelessWidget {
                 children: [
                   const SizedBox(height: 650),
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(29),
+                    borderRadius: BorderRadius.circular(35),
                     child: TextButton(
                       style: TextButton.styleFrom(
                           foregroundColor: Colors.black,
                           padding: const EdgeInsets.symmetric(
-                              vertical: 20, horizontal: 70),
-                          backgroundColor: const Color(0xFFB5DA66)),
+                              vertical: 15, horizontal: 80),
+                          backgroundColor: HexColor('98cc78')),
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -49,7 +50,12 @@ class MyApp extends StatelessWidget {
                           ),
                         );
                       },
-                      child: const Text("Comenzar!"),
+                      child: const Text("Comenzar!",
+                      style: TextStyle(fontSize: 15,
+                      color: Colors.black87,
+                      fontWeight: FontWeight.bold
+                      ),
+                      ),
                     ),
                   ),
                 ],

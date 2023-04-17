@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 
+import 'm_reciclaje/menu_r.dart';
+import 'my_app.dart';
+
+
 //Quieres ir al cine o a comer ahorita que termine la reunión bonita?
 
 
@@ -11,13 +15,14 @@ void main (){
       const App()
   );
 }
+
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashView(),
+      home: menu_reciclaje(),
     );
   }
 }

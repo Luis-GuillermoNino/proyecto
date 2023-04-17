@@ -8,6 +8,7 @@ import 'package:aplicacion/usuario.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../edicion/colores.dart';
+import '../m_reciclaje/menu_r.dart';
 import 'lista.dart';
 
 
@@ -127,7 +128,7 @@ class menulateral extends StatelessWidget {
         break;
       case 2:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const reciclaje()));
+            context, MaterialPageRoute(builder: (context) => const menu_reciclaje()));
         break;
       case 3:
         Navigator.push(
