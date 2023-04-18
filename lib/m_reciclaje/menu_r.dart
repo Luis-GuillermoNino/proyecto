@@ -32,9 +32,10 @@ class _menu_reciclajeState extends State<menu_reciclaje> {
         child: GridView.builder(
           itemCount: Menu.length,
             gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            //gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 3),
             itemBuilder: (context,index){
             return Container(
-                height: 80, width: 30,
+                height: 3000, width: 30,
               margin: EdgeInsets.only(left: 15,right: 15,top: 25,),
               decoration: BoxDecoration(
                 color: Colors.white,
