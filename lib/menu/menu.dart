@@ -24,7 +24,13 @@ class menulateral extends StatelessWidget {
         backgroundColor: Colores.colorfondo,
         body: Stack(
           children: [
-            const Mapa(),
+            Container(
+        decoration: BoxDecoration(
+        image: DecorationImage(image: AssetImage('assets/fondoMapa.jpeg'),
+        fit: BoxFit.cover,
+            )
+          )
+            ),
             Container(
               decoration: BoxDecoration(
                 color: Colores.mainColor,

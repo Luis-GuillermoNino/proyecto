@@ -1,14 +1,7 @@
-import 'package:aplicacion/InicioSesion/SplashS.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-
-import 'm_reciclaje/menu_r.dart';
 import 'my_app.dart';
-
-
-//Quieres ir al cine o a comer ahorita que termine la reunión bonita?
-
 
 void main (){
   runApp(
@@ -22,7 +15,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: menu_reciclaje(),
+      home:MyApp(),
     );
   }
 }

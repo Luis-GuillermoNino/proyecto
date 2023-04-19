@@ -1,7 +1,5 @@
 import 'dart:async';
-
 import 'package:aplicacion/Conexion/consulta.dart';
-
 import 'package:aplicacion/datos_rutas.dart';
 import 'package:aplicacion/edicion/colores.dart';
 import 'package:aplicacion/menu/menu.dart';
@@ -48,7 +46,7 @@ class MapaState extends State<Mapa>  {
   @override
   void initState() {
     super.initState();
-    Timer.periodic(const Duration(seconds: 5), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       repetirMarcadores();
     }
     );
@@ -210,7 +208,11 @@ class MapaState extends State<Mapa>  {
   }
   void repetirMarcadores() {
     marcadoresBD();
-    contador = (contador % 10) + 1;
+    if (contador == 10) {
+      contador = 1;
+    } else {
+      contador++;
+    }
   }
   @override
   void dispose() {

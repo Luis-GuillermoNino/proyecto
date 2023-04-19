@@ -5,7 +5,7 @@ class Consulta {
   static Future<Map<String,double>> obtenerCoordernadas(int id) async{
     final conn = await Conexion.getConnection();
     final results = await conn.query(
-        'SELECT longitud, latitud FROM `datos-ruta` WHERE id = ?', [id]
+        'SELECT longitud, latitud FROM `datosRuta` WHERE id = ?', [id]
     );
     await conn.close();
     if(results.isNotEmpty){
