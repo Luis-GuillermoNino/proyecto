@@ -46,7 +46,7 @@ class MapaState extends State<Mapa>  {
   @override
   void initState() {
     super.initState();
-    Timer.periodic(const Duration(seconds: 1), (timer) {
+    Timer.periodic(const Duration(seconds: 5), (timer) {
       repetirMarcadores();
     }
     );
@@ -181,12 +181,17 @@ class MapaState extends State<Mapa>  {
     });
   }
   Future<void> marcadoresBD() async {
+    final BitmapDescriptor personIcon = await BitmapDescriptor.fromAssetImage(
+      const ImageConfiguration(devicePixelRatio: 2.5),
+      'assets/camionBasura.png',
+    );
     final coordenadas = await Consulta.obtenerCoordernadas(contador);
     final latitud = coordenadas['latitud'];
     final longitud = coordenadas['longitud'];
     final LatLng posicion = LatLng(latitud!, longitud!);
     final Marker marker = Marker(
       markerId: const MarkerId('1'),
+      icon: personIcon,
       position: posicion,
       infoWindow: const InfoWindow(title: 'Marcador desde la base de datos'),
     );
@@ -209,6 +214,7 @@ class MapaState extends State<Mapa>  {
   void repetirMarcadores() {
     marcadoresBD();
     if (contador == 10) {
+      // Consulta.truncateTabla();
       contador = 1;
     } else {
       contador++;

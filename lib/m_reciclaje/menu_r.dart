@@ -31,7 +31,7 @@ class _menu_reciclajeState extends State<menu_reciclaje> {
 
         child: GridView.builder(
           itemCount: Menu.length,
-            gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
             //gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 3),
             itemBuilder: (context,index){
             return Container(
@@ -53,7 +53,8 @@ class _menu_reciclajeState extends State<menu_reciclaje> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset("assets/"+Menu[index].foto, width: 100,),
-                    Text(Menu[index].nombre)
+                    Text(Menu[index].nombre, textAlign: TextAlign.center,
+                    style: const TextStyle(fontSize: 50),)
                   ],
                 ),
               )

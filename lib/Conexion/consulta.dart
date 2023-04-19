@@ -2,6 +2,13 @@ import 'package:aplicacion/Conexion/conexion.dart';
 
 
 class Consulta {
+
+  static Future<void> truncateTabla() async {
+    final conn = await Conexion.getConnection();
+    await conn.query('TRUNCATE TABLE datosRuta');
+    await conn.close();
+  }
+
   static Future<Map<String,double>> obtenerCoordernadas(int id) async{
     final conn = await Conexion.getConnection();
     final results = await conn.query(

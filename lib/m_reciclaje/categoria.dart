@@ -5,6 +5,16 @@ class Categoria {
   String nombre;
   String foto;
   Categoria(this.id, this.nombre, this.foto);
+
+  Widget buildTexto(BuildContext context){
+    return Text(
+      nombre,
+      style:  TextStyle(
+        fontSize: 100,
+        fontWeight: FontWeight.bold
+      ),
+    );
+  }
 }
 
 
