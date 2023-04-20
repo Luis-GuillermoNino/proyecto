@@ -19,7 +19,6 @@ class Categoria {
   }
 }
 
-
 final Menu=[
   Categoria(1, "ORGÁNICO","comida.png"),
   Categoria(2, "INORGÁNICO", "inorganicoNoreciclable.png"),

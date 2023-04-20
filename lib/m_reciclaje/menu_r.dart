@@ -8,7 +8,6 @@ import 'organico.dart';
 
 class menu_reciclaje extends StatefulWidget {
   const menu_reciclaje({Key? key}) : super(key: key);
-
   @override
   State<menu_reciclaje> createState() => _menu_reciclajeState();
 }
@@ -28,12 +27,9 @@ class _menu_reciclajeState extends State<menu_reciclaje> {
           fontWeight: FontWeight.bold,),
         backgroundColor: Colors.white,
         centerTitle: true,
-
       ),
-
       //backgroundColor: Colors.white,
       body: Container(
-
         child: GridView.builder(
             itemCount: Menu.length,
             gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
@@ -95,8 +91,6 @@ class _menu_reciclajeState extends State<menu_reciclaje> {
         break;
     }
   }
-
-
 }
 
 
