@@ -15,7 +15,7 @@ class _PeligrososState extends State<Peligrosos> {
       backgroundColor: Color(0xFFF8F8F8),
       appBar: AppBar(
         elevation: 0.2,
-        toolbarHeight: 120,
+        toolbarHeight: 100,
         title:  const Text("PELIGROSOS"),
         titleTextStyle:  TextStyle(
           color: Colors.black,

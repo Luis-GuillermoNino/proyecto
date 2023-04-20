@@ -15,7 +15,7 @@ class _OrganicoState extends State<Organico> {
       backgroundColor: Color(0xFFF8F8F8),
       appBar: AppBar(
         elevation: 0.2,
-        toolbarHeight: 120,
+        toolbarHeight: 100,
         title:  const Text("ORGÁNICO"),
         titleTextStyle:  const TextStyle(
           color: Colors.black,

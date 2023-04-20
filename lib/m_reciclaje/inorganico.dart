@@ -16,7 +16,7 @@ class _InorganicoState extends State<Inorganico> {
       backgroundColor: Color(0xFFF8F8F8),
       appBar: AppBar(
         elevation: 0.2,
-        toolbarHeight: 120,
+        toolbarHeight: 100,
         title:  Text("INORGÁNICO"),
         titleTextStyle:  TextStyle(
           color: Colors.black,
