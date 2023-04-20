@@ -1,14 +1,15 @@
-import 'package:aplicacion/m_reciclaje/categoria.dart';
 import 'package:flutter/material.dart';
+import 'categoriaInorganica.dart';
 
-class menu_reciclaje extends StatefulWidget {
-  const menu_reciclaje({Key? key}) : super(key: key);
+
+class Inorganico extends StatefulWidget {
+  const Inorganico({Key? key}) : super(key: key);
 
   @override
-  State<menu_reciclaje> createState() => _menu_reciclajeState();
+  State<Inorganico> createState() => _InorganicoState();
 }
 
-class _menu_reciclajeState extends State<menu_reciclaje> {
+class _InorganicoState extends State<Inorganico> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +17,7 @@ class _menu_reciclajeState extends State<menu_reciclaje> {
       appBar: AppBar(
         elevation: 0.2,
         toolbarHeight: 120,
-        title:  Text("RECICLAJE"),
+        title:  Text("INORGÁNICO"),
         titleTextStyle:  TextStyle(
           color: Colors.black,
           fontSize: 30,
@@ -30,7 +31,7 @@ class _menu_reciclajeState extends State<menu_reciclaje> {
       body: Container(
 
         child: GridView.builder(
-            itemCount: Menu.length,
+            itemCount: Menu2.length,
             gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
             //gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 3),
             itemBuilder: (context,index){
@@ -52,9 +53,9 @@ class _menu_reciclajeState extends State<menu_reciclaje> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset("assets/"+Menu[index].foto, width: 200, height: 200,),
+                        Image.asset("assets/"+Menu2[index].foto, width: 200, height: 200,),
                         SizedBox(height: 20,),
-                        Text(Menu[index].nombre, textAlign: TextAlign.center,
+                        Text(Menu2[index].nombre, textAlign: TextAlign.center,
                           style: const TextStyle(fontSize: 50),)
                       ],
                     ),
@@ -65,6 +66,4 @@ class _menu_reciclajeState extends State<menu_reciclaje> {
       ),
     );
   }
-}
-
-
+  }

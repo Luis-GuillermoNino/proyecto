@@ -25,6 +25,7 @@ class MapaState extends State<Mapa>  {
   int contador = 1;
   LatLng? _currentPosition;
   final Set<Marker> _marker = {};
+  final String ApiKey = "AIzaSyCiXkGqo00VRBUq4PNWiYOUsX9P60FFAeA";
   final location.Location _location = location.Location();
   static const CameraPosition cameraPosition = CameraPosition(
     target: LatLng(17.07842707862655, -96.7425141036388),
@@ -39,9 +40,9 @@ class MapaState extends State<Mapa>  {
   List<LatLng> polylineCoordinates = [];
   Set<Polyline> _polylines = <Polyline>{};
   late PolylinePoints polylinePoints;
-  late LatLng currentLocation;
-  late LatLng destinationLocation;
-  late LatLng destino3;
+  late LatLng puntoRutaPrueba1;
+  late LatLng puntoPrueba2;
+  late LatLng puntoPrueba3;
 
   @override
   void initState() {
@@ -226,25 +227,25 @@ class MapaState extends State<Mapa>  {
     super.dispose();
   }
   void setInitialLocation() {
-    currentLocation = TrazoRutas.rutaPrueba[0];
-    destinationLocation = TrazoRutas.rutaPrueba[1];
-    destino3 = TrazoRutas.rutaPrueba[2];
+    puntoRutaPrueba1 = TrazoRutas.rutaPrueba[0];
+    puntoPrueba2 = TrazoRutas.rutaPrueba[1];
+    puntoPrueba3 = TrazoRutas.rutaPrueba[2];
   }
   void setPolylines() async {
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
-        "AIzaSyCiXkGqo00VRBUq4PNWiYOUsX9P60FFAeA",
-        PointLatLng(currentLocation.latitude, currentLocation.longitude),
-        PointLatLng(destinationLocation.latitude, destinationLocation.longitude),
+        ApiKey,
+        PointLatLng(puntoRutaPrueba1.latitude, puntoRutaPrueba1.longitude),
+        PointLatLng(puntoPrueba2.latitude, puntoPrueba2.longitude),
     );
     PolylineResult result2 = await polylinePoints.getRouteBetweenCoordinates(
-      "AIzaSyCiXkGqo00VRBUq4PNWiYOUsX9P60FFAeA",
-      PointLatLng(destinationLocation.latitude, destinationLocation.longitude),
-      PointLatLng(destino3.latitude, destino3.longitude),
+      ApiKey,
+      PointLatLng(puntoPrueba2.latitude, puntoPrueba2.longitude),
+      PointLatLng(puntoPrueba3.latitude, puntoPrueba3.longitude),
     );
     PolylineResult result3 = await polylinePoints.getRouteBetweenCoordinates(
-      "AIzaSyCiXkGqo00VRBUq4PNWiYOUsX9P60FFAeA",
-      PointLatLng(destino3.latitude, destino3.longitude),
-      PointLatLng(currentLocation.latitude, currentLocation.longitude)
+      ApiKey,
+      PointLatLng(puntoPrueba3.latitude, puntoPrueba3.longitude),
+      PointLatLng(puntoRutaPrueba1.latitude, puntoRutaPrueba1.longitude)
     );
     if(result.status ==  'OK') {
       for (var point in result.points) {
