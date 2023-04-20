@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'package:aplicacion/Conexion/consulta.dart';
-import 'package:aplicacion/datos_rutas.dart';
+import 'package:aplicacion/mapa/datos_rutas.dart';
 import 'package:aplicacion/edicion/colores.dart';
 import 'package:aplicacion/menu/menu.dart';
-import 'package:aplicacion/rutas.dart';
-import 'package:aplicacion/search_ruta_delegate.dart';
-import 'package:aplicacion/trazado_rutas.dart';
+import 'package:aplicacion/mapa/rutas.dart';
+import 'package:aplicacion/mapa/search_ruta_delegate.dart';
+import 'package:aplicacion/mapa/trazado_rutas.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

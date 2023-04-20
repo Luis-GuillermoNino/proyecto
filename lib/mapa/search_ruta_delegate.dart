@@ -1,4 +1,4 @@
-import 'package:aplicacion/rutas.dart';
+import 'package:aplicacion/mapa/rutas.dart';
 import 'package:flutter/material.dart';
 
 class SearchRutasDelegate extends SearchDelegate<Rutas>{

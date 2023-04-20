@@ -1,10 +1,10 @@
-import 'package:aplicacion/mapa.dart';
-import 'package:aplicacion/my_app.dart';
+import 'package:aplicacion/mapa/mapa.dart';
+import 'package:aplicacion/paginaComenzar.dart';
 import 'package:aplicacion/paginas_menu/Inicio.dart';
 import 'package:aplicacion/paginas_menu/alarma.dart';
 import 'package:aplicacion/paginas_menu/configuracion.dart';
 import 'package:aplicacion/paginas_menu/reciclaje.dart';
-import 'package:aplicacion/usuario.dart';
+import 'package:aplicacion/menu/usuario.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../edicion/colores.dart';

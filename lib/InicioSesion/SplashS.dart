@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:aplicacion/my_app.dart';
+import 'package:aplicacion/paginaComenzar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +13,7 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 2),()
     {
-      Get.to(MyApp());
+      Get.to(paginaComenzar());
     }
     );
     return Scaffold(

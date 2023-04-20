@@ -1,10 +1,10 @@
-import 'package:aplicacion/mapa.dart';
+import 'package:aplicacion/mapa/mapa.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class paginaComenzar extends StatelessWidget {
+  const paginaComenzar({super.key});
 
   @override
   Widget build(BuildContext context) {

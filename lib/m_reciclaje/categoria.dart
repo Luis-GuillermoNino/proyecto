@@ -19,10 +19,10 @@ class Categoria {
 
 
 final Menu=[
-  Categoria(1, "Orgánico","comida.png"),
-  Categoria(2, "Inorgánico", "inorganicoNoreciclable.png"),
-  Categoria(3, "Sanitarios", "Sanitarios.png"),
-  Categoria(4, "Residuos Peligrosos", "Peligrosos.png"),
-  Categoria(5, "Manejo especial", "ManejoEspecial.png"),
+  Categoria(1, "ORGÁNICO","comida.png"),
+  Categoria(2, "INORGÁNICO", "inorganicoNoreciclable.png"),
+  Categoria(3, "SANITARIOS", "Sanitarios.png"),
+  Categoria(4, "RESIDUOS PELIGROSOS", "Peligrosos.png"),
+  Categoria(5, "MANEJO    ESPECIAL ", "ManejoEspecial.png"),
 ];
 

@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'my_app.dart';
+import 'm_reciclaje/menu_r.dart';
+import 'paginaComenzar.dart';
 
 void main (){
   runApp(
@@ -15,7 +16,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home:MyApp(),
+      home:menu_reciclaje(),
     );
   }
 }

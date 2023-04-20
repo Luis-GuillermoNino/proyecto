@@ -5,7 +5,7 @@ import 'package:aplicacion/InicioSesion/Contrasena.dart';
 import 'package:flutter/material.dart';
 
 import '../edicion/colores.dart';
-import '../mapa.dart';
+import '../mapa/mapa.dart';
 
 
 class finalizar extends StatelessWidget {

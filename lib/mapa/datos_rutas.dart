@@ -1,4 +1,4 @@
-import 'package:aplicacion/rutas.dart';
+import 'package:aplicacion/mapa/rutas.dart';
 
 class RutasData {
   static const List<Rutas> rutas = [
