@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:aplicacion/Conexion/consulta.dart';
+import 'package:aplicacion/Conexion/consultaRutas.dart';
 import 'package:aplicacion/mapa/datos_rutas.dart';
 import 'package:aplicacion/edicion/colores.dart';
 import 'package:aplicacion/menu/menu.dart';

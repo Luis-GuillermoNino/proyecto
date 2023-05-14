@@ -53,11 +53,11 @@ class menulateral extends StatelessWidget {
                             .of(context)
                             .textTheme
                             .titleMedium!
-                            .copyWith(color: Colors.white70),
+                            .copyWith(color: Colors.black),
                       ),
                     ),
                     const Padding(padding: EdgeInsets.only(left: 24),
-                      child: Divider(height: 1, color: Colors.white24,),),
+                      child: Divider(height: 1, color: Colors.white,),),
 
                     listamenu(
                       nombre: 'Inicio',
@@ -66,7 +66,7 @@ class menulateral extends StatelessWidget {
                     ),
 
                     const Padding(padding: EdgeInsets.only(left: 24),
-                      child: Divider(height: 1, color: Colors.white24,),),
+                      child: Divider(height: 1, color: Colors.white,),),
 
                     listamenu(
                       nombre: 'Alarma',
@@ -94,7 +94,7 @@ class menulateral extends StatelessWidget {
                             .of(context)
                             .textTheme
                             .titleMedium!
-                            .copyWith(color: Colors.white70),
+                            .copyWith(color: Colors.black),
                       ),
                     ),
                     const Padding(padding: EdgeInsets.only(left: 24),

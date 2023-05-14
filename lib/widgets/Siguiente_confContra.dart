@@ -1,26 +1,89 @@
-// ignore_for_file: avoid_print
 
-import 'package:aplicacion/InicioSesion/ConfirmarContra.dart';
-import 'package:aplicacion/InicioSesion/Contrasena.dart';
+import 'package:aplicacion/mapa/mapa.dart';
 import 'package:flutter/material.dart';
 
+import '../Conexion/conexion.dart';
 import '../edicion/colores.dart';
 
-
 class siguiente_confContra extends StatelessWidget {
-  const siguiente_confContra({Key? key}) : super(key: key);
+  final TextEditingController contraControlador;
+  final TextEditingController contraConfControlador;
+  final String numeroTelefono;
+
+  const siguiente_confContra({
+    Key? key,
+    required this.contraControlador,
+    required this.contraConfControlador,
+    required this.numeroTelefono,
+  }) : super(key: key);
+
+  bool verificarContrasenas() {
+    String contrasena = contraControlador.text;
+    String confirmarContrasena = contraConfControlador.text;
+
+    if (contrasena.isEmpty || confirmarContrasena.isEmpty) {
+      return false;
+    }
+
+    return contrasena == confirmarContrasena;
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=> ConfirmarContra()));
+      onTap: () async {
+        if (verificarContrasenas()) {
+          final conn = await Conexion.getConnection();
+          await conn.query(
+            '''
+  UPDATE datosCliente
+  SET contrasena = '${contraControlador.text}'
+  WHERE numerotelefono = '$numeroTelefono'
+''',
+          );
+          await conn.close();
+          // ignore: use_build_context_synchronously
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text('Registro exitoso'),
+              content: const Text('¡Tu registro ha sido exitoso!'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Mapa(),
+                      ),
+                    );
+                  },
+                  child: const Text('Aceptar'),
+                ),
+              ],
+            ),
+          );
+        } else {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text('Error'),
+              content: const Text('Las contraseñas no coinciden. Inténtalo de nuevo.'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('Aceptar'),
+                ),
+              ],
+            ),
+          );
+        }
       },
       child: Container(
         alignment: Alignment.center,
         height: 47,
         decoration: BoxDecoration(
-          color:Colores.mainColor,
+          color: Colores.mainColor,
           borderRadius: BorderRadius.circular(6),
           boxShadow: [
             BoxShadow(

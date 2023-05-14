@@ -35,14 +35,7 @@ class IniciarSes extends StatelessWidget {
                     ),
                   ),
                 ),
-                /*const SizedBox(height: 60),
-                Text(
-                  'Ingresa a tu cuenta',
-                  style: TextStyle(color: Colores.colortexto,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),*/
+
 
                 const SizedBox(height: 45),
                 //Ingresar número de teléfono
@@ -62,16 +55,45 @@ class IniciarSes extends StatelessWidget {
                 const SizedBox(height: 30),
                 const BotonInicio(),
 
-                const Padding(
-                  padding: EdgeInsets.only(left: 60, top: 40),
+                Padding(
+                  padding: const EdgeInsets.only(left: 60, top: 40),
                   child: Row(
-                  children: [
-                    Text("Registrarse", style: TextStyle(color: Colors.black54),),
-                    SizedBox(width:40 ,height: 25,),
-                    Text("Olvide mi contraseña",style: TextStyle(color: Colors.black54),),
-                  ],
-                ),
-                ),
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  WillPopScope(
+                                    onWillPop: () async {
+                                      return false;
+                                    },
+                                    child: registrarse(),
+                                  ),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          "Registrarse"
+                              "",
+                          style: TextStyle(color: Colors.black54),
+                        ),
+                      ),
+                      SizedBox(width: 40, height: 25),
+                      GestureDetector(
+                        onTap: () {
+                          // Cuando se presiones olvide contra
+                        },
+                        child: Text(
+                          "Olvidé mi contraseña",
+                          style: TextStyle(color: Colors.black54),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+
               ],
             ),
           ),

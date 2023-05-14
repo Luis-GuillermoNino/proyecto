@@ -84,6 +84,7 @@ flutter:
     - assets/inorganicoReciclable.png
     - assets/fondoMapa.jpeg
     - assets/camionBasura.png
+    - assets/mexico.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

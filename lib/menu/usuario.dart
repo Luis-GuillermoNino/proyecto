@@ -20,16 +20,16 @@ class usuario extends StatelessWidget {
             backgroundColor: Colors.white60,
             child: Icon(
               CupertinoIcons.person,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
           title: Text(
             'Nombre del usuario',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.black),
           ),
           subtitle: Text(
             'teléfono',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.black),
           ),
         ),
       ),
