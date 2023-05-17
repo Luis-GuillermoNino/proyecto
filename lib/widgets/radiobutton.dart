@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class RadioB extends StatefulWidget {
@@ -13,10 +14,10 @@ class _RadioBState extends State<RadioB> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Radio Button"),
+        title: const Text("Radio Button"),
       ),
        body: Center(
-         child: Container(
+         child: SizedBox(
            width: double.infinity,
            child: Column(
              mainAxisAlignment: MainAxisAlignment.center,
@@ -24,8 +25,8 @@ class _RadioBState extends State<RadioB> {
 
               Row(
                 children: [
-                  Text("Género"),
-                  SizedBox(height: 20,),
+                  const Text("Género"),
+                  const SizedBox(height: 20,),
                   RadioListTile(
 
                       value: "Masculino",

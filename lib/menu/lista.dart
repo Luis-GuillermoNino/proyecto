@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class listamenu extends StatelessWidget {
-  const listamenu({Key? key, required this.nombre, required this.icono, required this.Presionar}) : super(key: key);
+class Listamenu extends StatelessWidget {
+  const Listamenu({Key? key, required this.nombre, required this.icono, required this.presionar}) : super(key: key);
   final String nombre; 
   final IconData icono;
-  final Function() Presionar;
+  final Function() presionar;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: Presionar,//Funcionalidad de botón
+      onTap: presionar,//Funcionalidad de botón
       child: Container(
         height: 56,
         decoration: BoxDecoration(

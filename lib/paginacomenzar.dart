@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class paginaComenzar extends StatelessWidget {
-  const paginaComenzar({super.key});
+class PaginaComenzar extends StatelessWidget {
+  const PaginaComenzar({super.key});
 
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'B APP',
+      title: 'ASURA',
       home: Scaffold(
         body: Stack(
           children: [

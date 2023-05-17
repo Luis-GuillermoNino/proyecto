@@ -1,12 +1,13 @@
-import 'package:aplicacion/widgets/CajaTextField.dart';
+
+import 'package:aplicacion/widgets/cajatextfield.dart';
 import 'package:flutter/material.dart';
 import '../widgets/Verificar.dart';
 
-class registrarse extends StatelessWidget {
-  registrarse({Key? key}) : super(key: key);
+class Registrarse extends StatelessWidget {
+  Registrarse({Key? key}) : super(key: key);
 
-  TextEditingController telefonoControlador = TextEditingController();
-  TextEditingController apodoControlador = TextEditingController();
+  final TextEditingController telefonoControlador = TextEditingController();
+  final TextEditingController apodoControlador = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -43,8 +44,8 @@ class registrarse extends StatelessWidget {
                             width: 20,
                             height: 20,
                           ),
-                          SizedBox(width: 5),
-                          Text(
+                          const SizedBox(width: 5),
+                          const Text(
                             "+52",
                             textAlign: TextAlign.center,
                             style: TextStyle(fontSize: 20),
@@ -52,7 +53,7 @@ class registrarse extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(width: 15),
+                    const SizedBox(width: 15),
                     SizedBox(
                       height: 45,
                       width: 245,
@@ -65,7 +66,7 @@ class registrarse extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 SizedBox(
                   height: 45,
                   width: 400,

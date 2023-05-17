@@ -1,21 +1,17 @@
-// ignore_for_file: avoid_print
 
-import 'package:aplicacion/InicioSesion/ConfirmarContra.dart';
-import 'package:aplicacion/InicioSesion/Contrasena.dart';
 import 'package:flutter/material.dart';
-
 import '../edicion/colores.dart';
 import '../mapa/mapa.dart';
 
 
-class finalizar extends StatelessWidget {
-  const finalizar({Key? key}) : super(key: key);
+class Finalizar extends StatelessWidget {
+  const Finalizar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=> Mapa()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> const Mapa()));
       },
       child: Container(
         alignment: Alignment.center,

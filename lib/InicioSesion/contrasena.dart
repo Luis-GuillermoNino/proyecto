@@ -1,14 +1,14 @@
-import 'package:aplicacion/widgets/Siguiente_confContra.dart';
+import 'package:aplicacion/widgets/siguiente_confcontra.dart';
 import 'package:flutter/material.dart';
-import '../widgets/LineaTextField.dart';
+import '../widgets/lineatextfield.dart';
 
-class contrasena extends StatelessWidget {
+class Contrasena extends StatelessWidget {
+
   final String numeroTelefono;
+  Contrasena({Key? key, required this.numeroTelefono}) : super(key: key);
 
-  contrasena({Key? key, required this.numeroTelefono}) : super(key: key);
-
-  TextEditingController contraControlador = TextEditingController();
-  TextEditingController contraConfControlador = TextEditingController();
+  final TextEditingController contraControlador = TextEditingController();
+  final TextEditingController contraConfControlador = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +49,8 @@ class contrasena extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(0),
                   child: Text(
-                    '$numeroTelefono',
-                    style: TextStyle(
+                    numeroTelefono,
+                    style: const TextStyle(
                       color: Colors.black54,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -83,7 +83,7 @@ class contrasena extends StatelessWidget {
                   obscure: true,
                 ),
                 const SizedBox(height: 50),
-                siguiente_confContra(contraControlador: contraControlador, contraConfControlador: contraConfControlador,numeroTelefono: numeroTelefono),
+                SiguienteConfContra(contraControlador: contraControlador, contraConfControlador: contraConfControlador,numeroTelefono: numeroTelefono),
               ],
             ),
           ),

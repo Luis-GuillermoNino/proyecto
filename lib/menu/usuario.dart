@@ -1,14 +1,11 @@
-import 'package:aplicacion/InicioSesion/IniciarSesion.dart';
+import 'package:aplicacion/InicioSesion/iniciarsesion.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //Clase usuario, contiene las características del apartado del usuario en el menú
-class usuario extends StatelessWidget {
-  const usuario({
+class Usuario extends StatelessWidget {
+  const Usuario({
     super.key,
   });
-  void _irAPaginaDeUsuario(BuildContext context) {
-    // Define aquí la navegación a la página de usuario
-  }
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

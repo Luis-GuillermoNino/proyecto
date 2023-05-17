@@ -23,9 +23,8 @@ class Mapa extends StatefulWidget {
 class MapaState extends State<Mapa>  {
   //Variables
   int contador = 1;
-  LatLng? _currentPosition;
   final Set<Marker> _marker = {};
-  final String ApiKey = "AIzaSyCiXkGqo00VRBUq4PNWiYOUsX9P60FFAeA";
+  final String apikey = "AIzaSyCiXkGqo00VRBUq4PNWiYOUsX9P60FFAeA";
   final location.Location _location = location.Location();
   static const CameraPosition cameraPosition = CameraPosition(
     target: LatLng(17.07842707862655, -96.7425141036388),
@@ -38,7 +37,7 @@ class MapaState extends State<Mapa>  {
   final TextEditingController _searchController = TextEditingController();
   //trazado de prueba
   List<LatLng> polylineCoordinates = [];
-  Set<Polyline> _polylines = <Polyline>{};
+  final Set<Polyline> _polylines = <Polyline>{};
   late PolylinePoints polylinePoints;
   late LatLng puntoRutaPrueba1;
   late LatLng puntoPrueba2;
@@ -67,7 +66,7 @@ class MapaState extends State<Mapa>  {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
-        drawer: const menulateral(),
+        drawer: const Menulateral(),
         appBar: AppBar(
           titleSpacing: 0.0,
           title: TextField(
@@ -105,7 +104,7 @@ class MapaState extends State<Mapa>  {
                         onWillPop: () async {
                           return false;
                         },
-                        child: const menulateral(),
+                        child: const Menulateral(),
                       ),
                 ),
               );
@@ -178,7 +177,6 @@ class MapaState extends State<Mapa>  {
 
     setState(() {
       _marker.add(newMarker);
-      _currentPosition = currentPosition;
     });
   }
   Future<void> marcadoresBD() async {
@@ -199,7 +197,6 @@ class MapaState extends State<Mapa>  {
     setState(() {
       _marker.add(marker);
     });
-    final GoogleMapController controller = await _controller.future;
   }
   void buscarRuta()async {
     final Rutas? result = await showSearch(
@@ -233,17 +230,17 @@ class MapaState extends State<Mapa>  {
   }
   void setPolylines() async {
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
-        ApiKey,
+        apikey,
         PointLatLng(puntoRutaPrueba1.latitude, puntoRutaPrueba1.longitude),
         PointLatLng(puntoPrueba2.latitude, puntoPrueba2.longitude),
     );
     PolylineResult result2 = await polylinePoints.getRouteBetweenCoordinates(
-      ApiKey,
+      apikey,
       PointLatLng(puntoPrueba2.latitude, puntoPrueba2.longitude),
       PointLatLng(puntoPrueba3.latitude, puntoPrueba3.longitude),
     );
     PolylineResult result3 = await polylinePoints.getRouteBetweenCoordinates(
-      ApiKey,
+      apikey,
       PointLatLng(puntoPrueba3.latitude, puntoPrueba3.longitude),
       PointLatLng(puntoRutaPrueba1.latitude, puntoRutaPrueba1.longitude)
     );

@@ -1,9 +1,7 @@
 import 'package:aplicacion/mapa/mapa.dart';
-import 'package:aplicacion/paginaComenzar.dart';
 import 'package:aplicacion/paginas_menu/Inicio.dart';
 import 'package:aplicacion/paginas_menu/alarma.dart';
 import 'package:aplicacion/paginas_menu/configuracion.dart';
-import 'package:aplicacion/paginas_menu/reciclaje.dart';
 import 'package:aplicacion/menu/usuario.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +11,8 @@ import 'lista.dart';
 
 
 //CLASE DONDE SE DEFINE EL CONTENIDO DEL MENÚ
-class menulateral extends StatelessWidget {
-  const menulateral({Key? key}) : super(key: key);
+class Menulateral extends StatelessWidget {
+  const Menulateral({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +23,7 @@ class menulateral extends StatelessWidget {
         body: Stack(
           children: [
             Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
         image: DecorationImage(image: AssetImage('assets/fondoMapa.jpeg'),
         fit: BoxFit.cover,
             )
@@ -44,7 +42,7 @@ class menulateral extends StatelessWidget {
               child: SafeArea(
                 child: Column(
                   children: [
-                    const usuario(),
+                    const Usuario(),
                     Padding(
                       padding: const EdgeInsets.only(left: 24, top: 20, bottom: 16),
                       child: Text(
@@ -59,28 +57,28 @@ class menulateral extends StatelessWidget {
                     const Padding(padding: EdgeInsets.only(left: 24),
                       child: Divider(height: 1, color: Colors.white,),),
 
-                    listamenu(
+                    Listamenu(
                       nombre: 'Inicio',
                       icono: CupertinoIcons.person,
-                      Presionar: () => onItemPressed(context, index: 0),
+                      presionar: () => onItemPressed(context, index: 0),
                     ),
 
                     const Padding(padding: EdgeInsets.only(left: 24),
                       child: Divider(height: 1, color: Colors.white,),),
 
-                    listamenu(
+                    Listamenu(
                       nombre: 'Alarma',
                       icono: CupertinoIcons.clock,
-                      Presionar: () => onItemPressed(context, index: 1),
+                      presionar: () => onItemPressed(context, index: 1),
                     ),
 
                     const Padding(padding: EdgeInsets.only(left: 24),
                       child: Divider(height: 1, color: Colors.white24,),),
 
-                    listamenu(
+                    Listamenu(
                       nombre: 'Reciclaje',
                       icono: CupertinoIcons.info,
-                      Presionar: () => onItemPressed(context, index: 2),
+                      presionar: () => onItemPressed(context, index: 2),
                     ),
 
                     const Padding(padding: EdgeInsets.only(left: 24),
@@ -100,10 +98,10 @@ class menulateral extends StatelessWidget {
                     const Padding(padding: EdgeInsets.only(left: 24),
                       child: Divider(height: 1, color: Colors.white24,),),
 
-                    listamenu(
+                    Listamenu(
                       nombre: 'Configuración',
                       icono: CupertinoIcons.settings,
-                      Presionar: () => onItemPressed(context, index: 3),
+                      presionar: () => onItemPressed(context, index: 3),
                     ),
                     const Padding(padding: EdgeInsets.only(left: 24),
                       child: Divider(height: 1, color: Colors.white24,),),
@@ -126,19 +124,19 @@ class menulateral extends StatelessWidget {
         break;
       case 0:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const inicio()));
+            context, MaterialPageRoute(builder: (context) => const Inicio()));
         break;
       case 1:
         Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const alarma()));
+        context, MaterialPageRoute(builder: (context) => const Alarma()));
         break;
       case 2:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const menu_reciclaje()));
+            context, MaterialPageRoute(builder: (context) => const MenuReciclaje()));
         break;
       case 3:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const configuracion()));
+            context, MaterialPageRoute(builder: (context) => const Configuracion()));
         break;
     }
   }

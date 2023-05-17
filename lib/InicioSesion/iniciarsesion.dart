@@ -1,11 +1,9 @@
-import 'dart:async';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
+import 'package:flutter/material.dart';
 import '../edicion/colores.dart';
-import '../widgets/CajaTextField.dart';
+import '../widgets/cajatextfield.dart';
 import '../widgets/Ingresar.dart';
-import 'Registrarse.dart';
+import 'registrarse.dart';
 
 class IniciarSes extends StatelessWidget {
   IniciarSes({Key? key}) : super(key: key);
@@ -69,23 +67,23 @@ class IniciarSes extends StatelessWidget {
                                     onWillPop: () async {
                                       return false;
                                     },
-                                    child: registrarse(),
+                                    child: Registrarse(),
                                   ),
                             ),
                           );
                         },
-                        child: Text(
+                        child: const Text(
                           "Registrarse"
                               "",
                           style: TextStyle(color: Colors.black54),
                         ),
                       ),
-                      SizedBox(width: 40, height: 25),
+                      const SizedBox(width: 40, height: 25),
                       GestureDetector(
                         onTap: () {
                           // Cuando se presiones olvide contra
                         },
-                        child: Text(
+                        child: const Text(
                           "Olvidé mi contraseña",
                           style: TextStyle(color: Colors.black54),
                         ),

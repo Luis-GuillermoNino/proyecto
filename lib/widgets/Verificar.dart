@@ -1,4 +1,4 @@
-import 'package:aplicacion/InicioSesion/Contrasena.dart';
+import 'package:aplicacion/InicioSesion/contrasena.dart';
 import 'package:flutter/material.dart';
 import '../edicion/colores.dart';
 import 'package:aplicacion/Conexion/conexion.dart';
@@ -20,14 +20,14 @@ class Verificar extends StatelessWidget {
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              title: Text('Error'),
-              content: Text('El campo de apodo no puede estar vacío.'),
+              title: const Text('Error'),
+              content: const Text('El campo de apodo no puede estar vacío.'),
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text('Aceptar'),
+                  child: const Text('Aceptar'),
                 ),
               ],
             ),
@@ -41,17 +41,18 @@ class Verificar extends StatelessWidget {
           final count = consulta.first['count'] as int;
           await conn.close();
           if (count > 0) {
+            // ignore: use_build_context_synchronously
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
-                title: Text('Error'),
-                content: Text('El número telefónico ya está registrado.'),
+                title: const Text('Error'),
+                content: const Text('El número telefónico ya está registrado.'),
                 actions: [
                   TextButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text('Aceptar'),
+                    child: const Text('Aceptar'),
                   ),
                 ],
               ),
@@ -63,21 +64,25 @@ class Verificar extends StatelessWidget {
               [apodo, numeroTelefono, ''],
             );
             await conn.close();
-
-            Navigator.push(context, MaterialPageRoute(builder: (context) => contrasena(numeroTelefono: numeroTelefono,)));
+            // ignore: use_build_context_synchronously
+            Navigator.push(context,
+                MaterialPageRoute(
+                    builder: (context) => Contrasena(numeroTelefono: numeroTelefono,)
+                )
+            );
           }
         } else {
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              title: Text('Error'),
-              content: Text('Verifique si se escribió correctamente el número telefónico.'),
+              title: const Text('Error'),
+              content: const Text('Verifique si se escribió correctamente el número telefónico.'),
               actions: [
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text('Aceptar'),
+                  child: const Text('Aceptar'),
                 ),
               ],
             ),

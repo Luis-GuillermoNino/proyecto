@@ -1,12 +1,13 @@
 
 import 'package:aplicacion/widgets/finalizar.dart';
 import 'package:flutter/material.dart';
-import '../widgets/LineaTextField.dart';
+import '../widgets/lineatextfield.dart';
 
 class ConfirmarContra extends StatelessWidget {
+
   ConfirmarContra({Key? key}) : super(key: key);
 
-  TextEditingController contraControlador = TextEditingController();
+  final TextEditingController contraControlador = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +104,7 @@ class ConfirmarContra extends StatelessWidget {
                 ),*/
 
                 const SizedBox(height: 50),
-                const finalizar(),
+                const Finalizar(),
               ],
             ),
           ),

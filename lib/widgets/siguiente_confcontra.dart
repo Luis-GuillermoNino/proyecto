@@ -1,16 +1,15 @@
 
 import 'package:aplicacion/mapa/mapa.dart';
 import 'package:flutter/material.dart';
-
 import '../Conexion/conexion.dart';
 import '../edicion/colores.dart';
 
-class siguiente_confContra extends StatelessWidget {
+class SiguienteConfContra extends StatelessWidget {
   final TextEditingController contraControlador;
   final TextEditingController contraConfControlador;
   final String numeroTelefono;
 
-  const siguiente_confContra({
+  const SiguienteConfContra({
     Key? key,
     required this.contraControlador,
     required this.contraConfControlador,
