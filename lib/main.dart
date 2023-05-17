@@ -16,7 +16,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home:paginaComenzar(),
+      home:menu_reciclaje(),
     );
   }
 }
