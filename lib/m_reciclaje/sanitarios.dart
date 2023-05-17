@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
 class Sanitarios extends StatefulWidget {
@@ -12,12 +12,12 @@ class _SanitariosState extends State<Sanitarios> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF8F8F8),
+      backgroundColor: const Color(0xFFF8F8F8),
       appBar: AppBar(
         elevation: 0.2,
         toolbarHeight: 100,
-        title:  Text("SANITARIOS"),
-        titleTextStyle:  TextStyle(
+        title:  const Text("SANITARIOS"),
+        titleTextStyle:  const TextStyle(
           color: Colors.black,
           fontSize: 30,
           fontWeight: FontWeight.bold,),

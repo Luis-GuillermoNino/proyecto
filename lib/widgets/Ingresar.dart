@@ -1,8 +1,6 @@
-// ignore_for_file: avoid_print
 
-import 'package:aplicacion/InicioSesion/Registrarse.dart';
+import 'package:aplicacion/mapa/mapa.dart';
 import 'package:flutter/material.dart';
-
 import '../edicion/colores.dart';
 
 class BotonInicio extends StatelessWidget {
@@ -12,7 +10,7 @@ class BotonInicio extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=> registrarse()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> const Mapa()));
       },
       child: Container(
         alignment: Alignment.center,

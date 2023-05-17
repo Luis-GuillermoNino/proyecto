@@ -1,15 +1,16 @@
+
 import 'package:flutter/cupertino.dart';
 
-class catInorganic {
+class CatInorganic {
   int id;
   String nombre;
   String foto;
-  catInorganic(this.id, this.nombre, this.foto);
+  CatInorganic(this.id, this.nombre, this.foto);
 
   Widget buildTexto(BuildContext context){
     return Text(
       nombre,
-      style:  TextStyle(
+      style:  const TextStyle(
           fontSize: 100,
           fontWeight: FontWeight.bold
       ),
@@ -18,8 +19,8 @@ class catInorganic {
 }
 
 
-final Menu2=[
-  catInorganic(1, "RECICLABLE","comida.png"),
-  catInorganic(2, "NO RECICLABLE", "inorganicoNoreciclable.png"),
+final menu2=[
+  CatInorganic(1, "RECICLABLE","comida.png"),
+  CatInorganic(2, "NO RECICLABLE", "inorganicoNoreciclable.png"),
 ];
 

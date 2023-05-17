@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
 class Organico extends StatefulWidget {
@@ -12,7 +12,7 @@ class _OrganicoState extends State<Organico> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF8F8F8),
+      backgroundColor: const Color(0xFFF8F8F8),
       appBar: AppBar(
         elevation: 0.2,
         toolbarHeight: 100,
@@ -23,7 +23,6 @@ class _OrganicoState extends State<Organico> {
           fontWeight: FontWeight.bold,),
         backgroundColor: Colors.white,
         centerTitle: true,
-
       ),
 
     );

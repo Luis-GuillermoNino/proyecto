@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
-class reciclaje extends StatelessWidget {
+class Reciclaje extends StatelessWidget {
 
-  const reciclaje({Key? key}) : super(key: key);
+  const Reciclaje({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

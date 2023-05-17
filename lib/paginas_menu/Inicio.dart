@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
-class inicio extends StatelessWidget {
+class Inicio extends StatelessWidget {
 
-  const inicio ({Key? key}) : super(key: key);
+  const Inicio ({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

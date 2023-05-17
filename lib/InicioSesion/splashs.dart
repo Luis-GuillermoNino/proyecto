@@ -1,10 +1,10 @@
 import 'dart:async';
-import 'package:aplicacion/paginaComenzar.dart';
+import 'package:aplicacion/paginacomenzar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../edicion/colores.dart';
-import 'IniciarSesion.dart';
+import 'iniciarsesion.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 2),()
     {
-      Get.to(paginaComenzar());
+      Get.to(PaginaComenzar());
     }
     );
     return Scaffold(

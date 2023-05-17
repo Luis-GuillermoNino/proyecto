@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
 class FormaCaja extends StatelessWidget {
   const FormaCaja({Key? key}) : super(key: key);
 
@@ -12,7 +12,7 @@ class FormaCaja extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(6),
         boxShadow: [
-          BoxShadow(
+                    BoxShadow(
             color: Colors.black.withOpacity(0.01),
             blurRadius: 7,
           ),
