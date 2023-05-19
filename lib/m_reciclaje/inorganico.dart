@@ -30,12 +30,15 @@ class _InorganicoState extends State<Inorganico> {
       //backgroundColor: Colors.white,
       body: GridView.builder(
           itemCount: menu2.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 0.8, // Ajusta este valor según tus necesidades
+          ),
           //gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 3),
           itemBuilder: (context,index){
             return Container(
-                height: 3000, width: 30,
-                margin: const EdgeInsets.only(left: 15,right: 15,top: 20,bottom: 10),
+                height: 400, width: 200,
+                margin: const EdgeInsets.only(left: 8,right: 8,top: 10,bottom: 10),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(5),
@@ -51,10 +54,10 @@ class _InorganicoState extends State<Inorganico> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset("assets/${menu2[index].foto}", width: 200, height: 200,),
+                      Image.asset("assets/${menu2[index].foto}", width: 110, height: 110,),
                       const SizedBox(height: 20,),
                       Text(menu2[index].nombre, textAlign: TextAlign.center,
-                        style: const TextStyle(fontSize: 50),)
+                        style: const TextStyle(fontSize: 30),)
                     ],
                   ),
                 )
