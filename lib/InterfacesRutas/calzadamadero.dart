@@ -1,14 +1,15 @@
 import 'package:aplicacion/edicion/colores.dart';
+import 'package:aplicacion/mapa/mapa.dart';
 import 'package:flutter/material.dart';
 
-class TrackingPage extends StatefulWidget {
-  const TrackingPage({super.key});
+class CalzadaMadero extends StatefulWidget {
+  const CalzadaMadero({super.key});
 
   @override
-  _TrackingPageState createState() => _TrackingPageState();
+  _CalzadaMaderoState createState() => _CalzadaMaderoState();
 }
 
-class _TrackingPageState extends State<TrackingPage> {
+class _CalzadaMaderoState extends State<CalzadaMadero> {
   final List<String> rastreoPuntos = [
     'Parada 1',
     'Parada 2',
@@ -31,6 +32,12 @@ class _TrackingPageState extends State<TrackingPage> {
       appBar: AppBar(
         title: const Text('RUTA CALZADA MADERO', style: TextStyle(color: Colors.black)),
         backgroundColor: Colores.mainColor,
+        leading: IconButton(
+          icon: const Icon(Icons.house),color: Colors.black,
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const Mapa()));
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -48,7 +55,7 @@ class _TrackingPageState extends State<TrackingPage> {
             ),
             const SizedBox(height: 16),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
                   onPressed: () {},
@@ -59,7 +66,9 @@ class _TrackingPageState extends State<TrackingPage> {
                   child: const Text('Info'),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Mapa()));
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: Colores.mainColor,
                     onPrimary: Colors.black,

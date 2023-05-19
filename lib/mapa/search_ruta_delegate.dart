@@ -65,7 +65,7 @@ class SearchRutasDelegate extends SearchDelegate<Rutas> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => TrackingPage(),
+            builder: (context) => CalzadaMadero(),
           ),
         );
         break;
