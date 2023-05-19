@@ -31,7 +31,7 @@ class Menulateral extends StatelessWidget {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colores.mainColor,
+                color: Colores.colormenu,
                 borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(15),
                   bottomRight: Radius.circular(15),
@@ -56,16 +56,6 @@ class Menulateral extends StatelessWidget {
                     ),
                     const Padding(padding: EdgeInsets.only(left: 24),
                       child: Divider(height: 1, color: Colors.white,),),
-
-                    Listamenu(
-                      nombre: 'Inicio',
-                      icono: CupertinoIcons.person,
-                      presionar: () => onItemPressed(context, index: 0),
-                    ),
-
-                    const Padding(padding: EdgeInsets.only(left: 24),
-                      child: Divider(height: 1, color: Colors.white,),),
-
                     Listamenu(
                       nombre: 'Alarma',
                       icono: CupertinoIcons.clock,

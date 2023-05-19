@@ -1,5 +1,8 @@
 import 'package:aplicacion/InicioSesion/registrarse.dart';
 import 'package:aplicacion/InterfacesRutas/calzadamadero.dart';
+import 'package:aplicacion/InterfacesRutas/hidalgo.dart';
+import 'package:aplicacion/InterfacesRutas/independencia.dart';
+import 'package:aplicacion/InterfacesRutas/zocalo.dart';
 import 'package:aplicacion/mapa/rutas.dart';
 import 'package:flutter/material.dart';
 
@@ -73,7 +76,7 @@ class SearchRutasDelegate extends SearchDelegate<Rutas> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => Registrarse(),
+            builder: (context) => Zocalo(),
           ),
         );
         break;
@@ -81,7 +84,7 @@ class SearchRutasDelegate extends SearchDelegate<Rutas> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => Registrarse(),
+            builder: (context) => Hidalgo(),
           ),
         );
         break;
@@ -89,7 +92,7 @@ class SearchRutasDelegate extends SearchDelegate<Rutas> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => Registrarse(),
+            builder: (context) => Independencia(),
           ),
         );
         break;

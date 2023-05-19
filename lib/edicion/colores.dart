@@ -5,4 +5,5 @@ class Colores {
     static HexColor  colortexto = HexColor('4F4F4F');
     static HexColor colorfondo = HexColor('b1e18d');
     static HexColor colordesactivador = HexColor('BFCCB5');
+    static HexColor colormenu = HexColor('046582');
 }
