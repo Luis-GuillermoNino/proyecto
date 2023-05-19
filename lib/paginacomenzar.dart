@@ -17,7 +17,7 @@ class PaginaComenzar extends StatelessWidget {
           children: [
             SafeArea(
               child: Image.asset(
-                'assets/puente.gif',
+                'assets/nuevofondo.gif',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: double.infinity,

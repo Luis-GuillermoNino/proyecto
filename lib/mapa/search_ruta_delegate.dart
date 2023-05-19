@@ -1,16 +1,23 @@
+import 'package:aplicacion/InicioSesion/registrarse.dart';
+import 'package:aplicacion/InterfacesRutas/calzadamadero.dart';
 import 'package:aplicacion/mapa/rutas.dart';
 import 'package:flutter/material.dart';
 
-class SearchRutasDelegate extends SearchDelegate<Rutas>{
+class SearchRutasDelegate extends SearchDelegate<Rutas> {
   final List<Rutas> rutas;
+
   SearchRutasDelegate(this.rutas);
+
 
   @override
   String get searchFieldLabel => 'Ruta';
 
   @override
   List<Widget> buildActions(BuildContext context) {
-    return <Widget>[      IconButton(        icon: const Icon(Icons.clear),        onPressed: () {          query = '';        },      ),    ];
+    return <Widget>[ IconButton(icon: const Icon(Icons.clear), onPressed: () {
+      query = '';
+    },),
+    ];
   }
 
   @override
@@ -20,7 +27,7 @@ class SearchRutasDelegate extends SearchDelegate<Rutas>{
       onPressed: () {
         query = '';
         FocusScope.of(context).unfocus();
-        close(context,const Rutas(''));
+        close(context, const Rutas(''));
       },
     );
   }
@@ -40,14 +47,52 @@ class SearchRutasDelegate extends SearchDelegate<Rutas>{
     return ListView.builder(
       itemCount: suggestions.length,
       itemBuilder: (BuildContext context, int index) {
-        return ListTile(
-          title: Text(suggestions[index].rutaNombre),
+        return GestureDetector(
           onTap: () {
-            FocusScope.of(context).unfocus();
-            close(context, suggestions[index]);
+            navigateToPage(context, suggestions[index]);
           },
+          child: ListTile(
+            title: Text(suggestions[index].rutaNombre),
+          ),
         );
       },
     );
+  }
+
+  void navigateToPage(BuildContext context, Rutas ruta) {
+    switch (ruta.rutaNombre) {
+      case 'Calzada Madero':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => TrackingPage(),
+          ),
+        );
+        break;
+      case 'Zocalo':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Registrarse(),
+          ),
+        );
+        break;
+      case 'Hidalgo':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Registrarse(),
+          ),
+        );
+        break;
+      case 'Independencia':
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Registrarse(),
+          ),
+        );
+        break;
+    }
   }
 }

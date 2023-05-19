@@ -21,7 +21,6 @@ class Mapa extends StatefulWidget {
 }
 
 class MapaState extends State<Mapa>  {
-  //Variables
   int contador = 1;
   final Set<Marker> _marker = {};
   final String apikey = "AIzaSyCiXkGqo00VRBUq4PNWiYOUsX9P60FFAeA";
@@ -32,10 +31,8 @@ class MapaState extends State<Mapa>  {
   );
   final Completer<GoogleMapController> _controller =
   Completer<GoogleMapController>();
-  // Lista temporal de rutas
   List<Rutas> rutas = RutasData.rutas;
   final TextEditingController _searchController = TextEditingController();
-  //trazado de prueba
   List<LatLng> polylineCoordinates = [];
   final Set<Polyline> _polylines = <Polyline>{};
   late PolylinePoints polylinePoints;
