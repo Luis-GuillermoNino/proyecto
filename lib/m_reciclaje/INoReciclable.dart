@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'MENORGANICO.dart';
+
 
 
 class INoReciclable extends StatefulWidget {
@@ -26,7 +28,17 @@ class _INoReciclableState extends State<INoReciclable> {
         centerTitle: true,
 
       ),
+        body: ListView.separated(itemBuilder: (context, index) {
+          return ListTile(
+              leading: Image.asset("assets/${menu23[index].foto2}", width: 40, height: 40,),
+              title:
+              Text(menu23[index].nombre2, textAlign: TextAlign.left,
+                style: const TextStyle(fontSize: 15),)
 
+
+          );
+        }, separatorBuilder: (context, index) => const Divider(),itemCount: menu23.length,
+        )
     );
   }
 }

@@ -86,6 +86,33 @@ flutter:
     - assets/camionBasura.png
     - assets/mexico.png
     - assets/nuevofondo.gif
+    - assets/aguajs.png
+    - assets/bano.png
+    - assets/composta.png
+    - assets/hedor.png
+    - assets/organico.png
+    - assets/plastic.png
+    - assets/plastico1.png
+    - assets/plastico2.png
+    - assets/reselec.png
+    - assets/residuos.png
+    - assets/toxicos.png
+    - assets/cabello.png
+    - assets/cafe.png
+    - assets/comi.png
+    - assets/fuego.png
+    - assets/hoja.png
+    - assets/hueso.png
+    - assets/huevo.png
+    - assets/naranja.png
+    - assets/pan.png
+    - assets/panuelo.png
+    - assets/rama.png
+    - assets/sierra.png
+    - assets/taco.png
+    - assets/te.png
+    - assets/teverde.png
+    - assets/tortillas.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

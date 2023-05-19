@@ -12,7 +12,7 @@ class Categoria {
     return Text(
       nombre,
       style:  const TextStyle(
-          fontSize: 100,
+          fontSize: 10,
           fontWeight: FontWeight.bold
       ),
     );
@@ -20,9 +20,9 @@ class Categoria {
 }
 
 final menu=[
-  Categoria(1, "ORGÁNICO","comida.png"),
-  Categoria(2, "INORGÁNICO", "inorganicoNoreciclable.png"),
-  Categoria(3, "SANITARIOS", "Sanitarios.png"),
-  Categoria(4, "RESIDUOS ""PELIGROSOS", "Peligrosos.png"),
+  Categoria(1, "ORGÁNICO","organico.png"),
+  Categoria(2, "INORGÁNICO", "plastic.png"),
+  Categoria(3, "SANITARIOS", "aguajs.png"),
+  Categoria(4, "RESIDUOS ""PELIGROSOS", "toxicos.png"),
   Categoria(5, "MANEJO ESPECIAL", "ManejoEspecial.png"),
 ];
