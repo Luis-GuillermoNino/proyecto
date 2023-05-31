@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
 
-import 'MENORGANICO.dart';
+
+import 'MENSANITARIOS.dart';
 
 class Sanitarios extends StatefulWidget {
   const Sanitarios({Key? key}) : super(key: key);
@@ -29,14 +30,14 @@ class _SanitariosState extends State<Sanitarios> {
       ),
         body: ListView.separated(itemBuilder: (context, index) {
           return ListTile(
-              leading: Image.asset("assets/${menu23[index].foto2}", width: 40, height: 40,),
+              leading: Image.asset("assets/${menu26[index].foto2}", width: 40, height: 40,),
               title:
-              Text(menu23[index].nombre2, textAlign: TextAlign.left,
+              Text(menu26[index].nombre2, textAlign: TextAlign.left,
                 style: const TextStyle(fontSize: 15),)
 
 
           );
-        }, separatorBuilder: (context, index) => const Divider(),itemCount: menu23.length,
+        }, separatorBuilder: (context, index) => const Divider(),itemCount: menu26.length,
         )
 
     );

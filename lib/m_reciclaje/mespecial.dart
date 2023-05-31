@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 
+import 'MENESPECIAL.dart';
 import 'MENORGANICO.dart';
 
 class MEspecial extends StatefulWidget {
@@ -27,7 +28,7 @@ class _MEspecialState extends State<MEspecial> {
       ),
         body: ListView.separated(itemBuilder: (context, index) {
           return ListTile(
-              leading: Image.asset("assets/${menu23[index].foto2}", width: 40, height: 40,),
+              leading: Image.asset("assets/${menu28[index].foto2}", width: 40, height: 40,),
               title:
               Text(menu23[index].nombre2, textAlign: TextAlign.left,
                 style: const TextStyle(fontSize: 15),)

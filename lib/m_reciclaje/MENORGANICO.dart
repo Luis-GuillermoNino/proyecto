@@ -23,7 +23,7 @@ final menu23=[
   Listado( "Cáscaras de frutas y verduras","comi.png"),
   Listado( "Cascarón de huevo", "huevo.png"),
   Listado( "Restos de comida", "taco.png"),
-  Listado( "Cabello ""PELIGROSOS", "cabello.png"),
+  Listado( "Cabello ", "cabello.png"),
   Listado( "Cenizas ", "fuego.png"),
   Listado( "Huesos","hueso.png"),
   Listado( "Servilletas de papel", "panuelo.png"),

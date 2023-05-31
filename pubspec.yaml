@@ -114,6 +114,68 @@ flutter:
     - assets/teverde.png
     - assets/tortillas.png
     - assets/asura.gif
+    - assets/caja.png
+    - assets/alambre.png
+    - assets/atun.png
+    - assets/blusa.png
+    - assets/botella.png
+    - assets/botellaAmarila.png
+    - assets/botellaverde.png
+    - assets/cajacereal.png
+    - assets/calcetines.png
+    - assets/chaqueta.png
+    - assets/cinta.png
+    - assets/cortinas.png
+    - assets/detela.png
+    - assets/documentos.png
+    - assets/frasco.png
+    - assets/jugo.png
+    - assets/lataCerveza.png
+    - assets/lataRefresco.png
+    - assets/latas.png
+    - assets/lentes.png
+    - assets/libro.png
+    - assets/madera.png
+    - assets/manta.png
+    - assets/mantel.png
+    - assets/menu.png
+    - assets/pantalones.png
+    - assets/papelAluminio.png
+    - assets/paquete.png
+    - assets/periodico.png
+    - assets/recortes.png
+    - assets/revista.png
+    - assets/ropaInterior.png
+    - assets/sabanas.png
+    - assets/sardina.png
+    - assets/toalla.png
+    - assets/vidrio.png
+    - assets/vino.png
+    - assets/yogur.png
+    - assets/zapatos.png
+    - assets/bolsaplastico.png
+    - assets/celofan.png
+    - assets/chicle.png
+    - assets/colillas.png
+    - assets/globos.png
+    - assets/guantes.png
+    - assets/juguete.png
+    - assets/papelAluminio.png
+    - assets/unicel.png
+    - assets/aceitedecarro.png
+    - assets/aerosol.png
+    - assets/biologico.png
+    - assets/corrosivo.png
+    - assets/explosivo.png
+    - assets/inflamable.png
+    - assets/lampara.png
+    - assets/medicamento.png
+    - assets/pilas.png
+    - assets/reactivo.png
+    - assets/solvente.png
+    - assets/toxico1.png
+
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
